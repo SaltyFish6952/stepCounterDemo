@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
         if(item.getItemId() == R.id.achievements){
 
-            
+            Intent intent = new Intent(MainActivity.this,AchievementsActivity.class);
+            startActivity(intent);
 
         }
 

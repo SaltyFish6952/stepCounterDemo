@@ -20,7 +20,9 @@
         <service
             android:name=".MyStepService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".AchievementsActivity"></activity>
     </application>
 
 </manifest>

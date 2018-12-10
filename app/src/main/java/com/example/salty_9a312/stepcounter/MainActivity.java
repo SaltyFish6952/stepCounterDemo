@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
         if(item.getItemId() == R.id.achievements){
 
-            
+
 
         }
 

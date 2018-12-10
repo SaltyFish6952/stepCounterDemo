@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
         if(item.getItemId() == R.id.achievements){
 
-
+            Intent intent = new Intent(MainActivity.this,AchievementsActivity.class);
+            startActivity(intent);
 
         }
 
@@ -232,9 +233,10 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         series.setDataWidth(1);
 
 
-        graph.getViewport().setMinY(0);
+        graph.getViewport().setMinY(-1);
         graph.getViewport().setMaxY(series.getHighestValueY() * 1.2);
         graph.getGridLabelRenderer().setNumHorizontalLabels(7);
+        graph.getGridLabelRenderer().setVerticalLabelsVisible(false);
         graph.getViewport().setYAxisBoundsManual(true);
 
 //        double xInterval = 25;

@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AchievementsActivity">
+    tools:context=".AchievementsActivity"
+    android:orientation="vertical">
 
-<ListView
-    android:id="@+id/achievements_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_margin="5dp"
+        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/achievements_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
 
-</ListView>
+        </ListView>
+    </LinearLayout>
+
+
 
 </LinearLayout>

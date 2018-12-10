@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
     private MyStepService.Binder myStepBinder = null;
     private static DBUtils dbUtils;
+    private ArrayList<DataPoint> dataPoints;
 
 
     @Override
@@ -52,6 +53,13 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
         Intent intent = new Intent(MainActivity.this, MyStepService.class);
         bindService(intent, this, Context.BIND_AUTO_CREATE);
+
+        dataPoints = new ArrayList<>();
+
+        for (int j = 0; j < 7; j++) {
+                dataPoints.add(j, new DataPoint(j, 0));
+        }
+
 
         initGraph();
 
@@ -134,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
     public void initGraph() {
 
-        ArrayList<DataPoint> dataPoints = new ArrayList<>();
+
         String[] Labels = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         int[] checks = new int[]{0, 0, 0, 0, 0, 0, 0};
 
@@ -152,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
         int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
-        int i = 0;
+
 
 
         if (cursor.moveToFirst()) {
@@ -165,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
                 try {
 
                     date = sdf.parse(cursor.getString(cursor.getColumnIndex("date")));
-
+                    String dadd = cursor.getString(cursor.getColumnIndex("date"));
 
                     cal.setTime(date);
 
@@ -179,9 +187,10 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
                 int dateWeek = cal.get(Calendar.DAY_OF_WEEK) - 1;
 
-                dataPoints.add(
-                        dateWeek, new DataPoint(++i,
-                                cursor.getInt(cursor.getColumnIndex("current_step"))));
+                int count = cursor.getInt(cursor.getColumnIndex("current_step"));
+
+                dataPoints.set(
+                        dateWeek, new DataPoint(dateWeek, count));
 
                 checks[dateWeek] = 1;
 
@@ -196,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         for (int j = 0; j < 7; j++) {
 
             if (checks[j] == 0) {
-                dataPoints.add(j, new DataPoint(j, 0));
+                dataPoints.set(j, new DataPoint(j, 0));
             }
 
         }

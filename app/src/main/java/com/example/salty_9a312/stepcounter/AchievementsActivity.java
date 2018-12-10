@@ -3,7 +3,9 @@ package com.example.salty_9a312.stepcounter;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,8 @@ public class AchievementsActivity extends AppCompatActivity {
 
         achievement.setAdapter(achievementAdapter);
 
+        TextView textView = findViewById(R.id.total);
+        textView.setText("Total Steps : " + total);
 
     }
 
@@ -52,8 +56,9 @@ public class AchievementsActivity extends AppCompatActivity {
         if (cursor.moveToFirst()) {
 
             int temp = cursor.getInt(cursor.getColumnIndex("current_step"));
-
+            Log.d("temp", temp + "");
             total_count += temp;
+            Log.d("total_count", total_count + "");
 
         }
         while (cursor.moveToNext()) ;

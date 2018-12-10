@@ -6,66 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".AchievementsActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/progress_pic"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/run" />
+<ListView
+    android:id="@+id/achievements_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/progress_title"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="10dp"
-                android:gravity="right"
-                android:text="10000 Steps"
-                android:textSize="30sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/progress_info"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:gravity="center"
-                    android:text="you have been step for 10000" />
-
-                <TextView
-                    android:id="@+id/progress_text"
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
-                    android:gravity="end|center"
-                    android:text="90%" />
-
-            </LinearLayout>
-
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_gravity="bottom"
-                android:layout_marginHorizontal="5dp"
-                android:progress="70"/>
-
-
-        </LinearLayout>
-
-    </LinearLayout>
+</ListView>
 
 </LinearLayout>
